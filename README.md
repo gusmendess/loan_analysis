@@ -23,7 +23,7 @@ raw_data_np = np.genfromtxt("loan-data.csv", delimiter = ';', skip_header = 1, a
 raw_data_np
 ```
 
-## Checking for Incomplete Data: Checks the amount of missing values in the raw data. A temporary filling value (temporary_fill) is created and used to fill missing values in numeric data. Temporary statistics (minimum, mean, and maximum) are calculated for numeric data.
+## Checking for Incomplete Data: Checks the amount of missing values in the raw data and create temporary files to substitute them.
 
 
 ```python
