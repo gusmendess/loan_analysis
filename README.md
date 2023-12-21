@@ -1,6 +1,8 @@
 # LOAN_ANALYSIS
 This code performs the preprocessing of a dataset related to loans (stored in the "loan-data.csv" file). The preprocessing is divided into several steps, each aiming to manipulate and clean specific data.
 
+<img src="https://i.imgur.com/BHvoxrE.jpg](https://i.imgur.com/Ah4wGve.jpeg"> 
+
 ## Importing the Packages: The code starts by importing the NumPy package.
 
 
