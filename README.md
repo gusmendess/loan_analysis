@@ -1,7 +1,7 @@
 # loan_analysis
 This code performs the preprocessing of a dataset related to loans (stored in the "loan-data.csv" file). The preprocessing is divided into several steps, each aiming to manipulate and clean specific data.
 
-## Importing the Packages
+## Importing the Packages: The code starts by importing the NumPy package.
 
 
 ```python
@@ -13,7 +13,7 @@ import numpy as np
 np.set_printoptions(suppress = True, linewidth = 100, precision = 2)
 ```
 
-## Importing the Data
+## Importing the Data: Raw data is loaded from the CSV file using the NumPy np.genfromtxt function.
 
 
 ```python
@@ -21,7 +21,7 @@ raw_data_np = np.genfromtxt("loan-data.csv", delimiter = ';', skip_header = 1, a
 raw_data_np
 ```
 
-## Checking for Incomplete Data
+## Checking for Incomplete Data: Checks the amount of missing values in the raw data. A temporary filling value (temporary_fill) is created and used to fill missing values in numeric data. Temporary statistics (minimum, mean, and maximum) are calculated for numeric data.
 
 
 ```python
@@ -51,7 +51,7 @@ temporary_stats = np.array([np.nanmin(raw_data_np, axis = 0),
 temporary_stats
 ```
 
-## Splitting the Dataset
+## Splitting the Dataset: String and numeric datasets are separated based on the presence of missing values.
 
 ### Splitting the Columns
 
@@ -118,7 +118,7 @@ header_strings
 header_numeric
 ```
 
-## Creating Checkpoints:
+## Creating Checkpoints: A checkpoint function is defined to save checkpoints of string data.
 
 
 ```python
@@ -143,8 +143,7 @@ checkpoint_test['data']
 np.array_equal(checkpoint_test['data'], loan_data_strings)
 ```
 
-## Manipulating String Columns
-
+## Manipulating String Columns:
 
 ```python
 header_strings
@@ -495,7 +494,7 @@ loan_data_strings[:,5] = np.where(np.isin(loan_data_strings[:,5], states_east), 
 np.unique(loan_data_strings[:,5])
 ```
 
-## Converting to Numbers
+## Converting to Numbers: String data is converted to numeric types.
 
 
 ```python
@@ -534,7 +533,7 @@ checkpoint_strings["data"]
 np.array_equal(checkpoint_strings['data'], loan_data_strings)
 ```
 
-## Manipulating Numeric Columns
+## Manipulating Numeric Columns: Missing values in numeric data are filled with temporary statistics(An exchange rate is applied to certain columns, converting from USD to EUR).
 
 
 ```python
@@ -798,7 +797,7 @@ checkpoint_numeric = checkpoint("Checkpoint-Numeric", header_numeric, loan_data_
 checkpoint_numeric['header'], checkpoint_numeric['data']
 ```
 
-## Creating the "Complete" Dataset
+## Creating the "Complete" Dataset: String and numeric datasets are combined to form the final dataset (Data is sorted based on the first column (ID)).
 
 
 ```python
@@ -847,7 +846,7 @@ loan_data
 np.argsort(loan_data[:,0])
 ```
 
-## Storing the New Dataset
+## Storing the New Dataset: (The preprocessed dataset is saved in a new CSV file named "loan-data-preprocessed.csv.")
 
 
 ```python
